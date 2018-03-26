@@ -102,6 +102,9 @@ hiredis-example-ivykis: examples/example-ivykis.c adapters/ivykis.h $(STLIBNAME)
 hiredis-example-macosx: examples/example-macosx.c adapters/macosx.h $(STLIBNAME)
 	$(CC) -o examples/$@ $(REAL_CFLAGS) $(REAL_LDFLAGS) -I. $< -framework CoreFoundation $(STLIBNAME)
 
+hiredis-example-libswevent: examples/example-libswevent.c adapters/libswevent.h $(STLIBNAME)
+	$(CC) -o examples/$@ $(REAL_CFLAGS) $(REAL_LDFLAGS) -I. $< -lswevent $(STLIBNAME)
+
 ifndef AE_DIR
 hiredis-example-ae:
 	@echo "Please specify AE_DIR (e.g. <redis repository>/src)"
